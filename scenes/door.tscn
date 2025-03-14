@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://n3bt60xdgxyb"]
+
+[ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/nivel1/items/platformPack_tilesheet.png" id="1_hpvv5"]
+[ext_resource type="Script" uid="uid://btqki7gsc7obo" path="res://scripts/door.gd" id="1_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
+size = Vector2(11, 124)
+
+[node name="Door" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_uvdjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hpvv5")
+region_enabled = true
+region_rect = Rect2(449, 315, 64, 132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 3)
+shape = SubResource("RectangleShape2D_uvdjg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

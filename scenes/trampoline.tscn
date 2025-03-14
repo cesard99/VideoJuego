@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn22lrwe86s0l"]
+
+[ext_resource type="Script" uid="uid://bkwssiyukjx75" path="res://scripts/trampoline.gd" id="1_1ne3y"]
+[ext_resource type="Texture2D" uid="uid://djhcuhjucr66y" path="res://assets/sprites/nivel1/items/springboardUp.png" id="1_nytqh"]
+[ext_resource type="Texture2D" uid="uid://yg02ff3h1nkg" path="res://assets/sprites/nivel1/items/springboardDown.png" id="2_1ne3y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gay0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nytqh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nytqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ne3y")
+}],
+"loop": false,
+"name": &"launch",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64cc3"]
+size = Vector2(62, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqe70"]
+size = Vector2(68, 36)
+
+[node name="trampoline" type="Node2D"]
+script = ExtResource("1_1ne3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5gay0")
+animation = &"launch"
+frame = 1
+frame_progress = 0.780238
+
+[node name="activation_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activation_area"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_64cc3")
+
+[node name="object_collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object_collision"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_oqe70")
+
+[connection signal="body_entered" from="activation_area" to="." method="_on_activation_area_body_entered"]

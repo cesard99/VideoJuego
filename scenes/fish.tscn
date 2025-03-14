@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt33yrh7otesh"]
+
+[ext_resource type="Texture2D" uid="uid://qgn84e4ilsyo" path="res://assets/sprites/enemies/fishSwim1.png" id="1_nub35"]
+[ext_resource type="Script" uid="uid://bxytsjq1v0ugx" path="res://scripts/fish.gd" id="1_pgks6"]
+[ext_resource type="Texture2D" uid="uid://b0dsv3862ftgh" path="res://assets/sprites/enemies/fishSwim2.png" id="2_pgks6"]
+[ext_resource type="PackedScene" uid="uid://630jbmhj0ig4" path="res://scenes/killzone.tscn" id="3_6lgmd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpvan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nub35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pgks6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nub35"]
+size = Vector2(68, 34)
+
+[node name="fish" type="Node2D"]
+script = ExtResource("1_pgks6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wpvan")
+autoplay = "default"
+frame_progress = 0.903085
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("3_6lgmd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_nub35")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-4, 0)
+target_position = Vector2(24, 0)
+
+[node name="RayCastLefts" type="RayCast2D" parent="."]
+position = Vector2(-8, 0)
+target_position = Vector2(-24, 0)

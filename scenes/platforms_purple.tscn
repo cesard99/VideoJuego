@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3foma4xb4b8e"]
+
+[ext_resource type="Texture2D" uid="uid://d0d3ffm3pxlx4" path="res://assets/sprites/tiles/basic/stoneHalfLeft.png" id="1_1j0mg"]
+[ext_resource type="Texture2D" uid="uid://d2aasawmb1l7k" path="res://assets/sprites/tiles/basic/stoneHalfMid.png" id="2_aaj3w"]
+[ext_resource type="Texture2D" uid="uid://c7aihkwjcr53t" path="res://assets/sprites/tiles/basic/stoneHalfRight.png" id="3_18hvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2yb"]
+size = Vector2(210.5, 39)
+
+[node name="Plataform" type="AnimatableBody2D"]
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+position = Vector2(11, -42)
+texture = ExtResource("1_1j0mg")
+region_rect = Rect2(45, 37, 199, 40)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(81, -42)
+texture = ExtResource("2_aaj3w")
+region_rect = Rect2(45, 37, 199, 40)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+position = Vector2(151, -42)
+texture = ExtResource("3_18hvo")
+region_rect = Rect2(45, 37, 199, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(81, -57)
+shape = SubResource("RectangleShape2D_8h2yb")
+one_way_collision = true

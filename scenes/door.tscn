@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://n3bt60xdgxyb"]
+[gd_scene load_steps=3 format=3 uid="uid://n3bt60xdgxyb"]
 
-[ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/nivel1/items/platformPack_tilesheet.png" id="1_hpvv5"]
-[ext_resource type="Script" uid="uid://btqki7gsc7obo" path="res://scripts/door.gd" id="1_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/tiles/items/platformPack_tilesheet.png" id="1_hpvv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
 size = Vector2(11, 124)
 
 [node name="Door" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_uvdjg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hpvv5")

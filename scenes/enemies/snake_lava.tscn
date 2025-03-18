@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://0sfcd1kvrbsr"]
+
+[ext_resource type="Texture2D" uid="uid://dbb5mbcke4c7u" path="res://assets/sprites/enemy sprites extra/snakeLava.png" id="1_wd1h2"]
+[ext_resource type="Texture2D" uid="uid://kyldw743op6s" path="res://assets/sprites/enemy sprites extra/snakeLava_ani.png" id="2_qs2ed"]
+[ext_resource type="PackedScene" uid="uid://630jbmhj0ig4" path="res://scenes/killzone.tscn" id="3_dry1j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fv2kv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wd1h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qs2ed")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fh8qq"]
+radius = 23.0
+height = 146.0
+
+[node name="SnakeLava" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_fv2kv")
+autoplay = "default"
+frame_progress = 0.52945
+
+[node name="Killzone" parent="." instance=ExtResource("3_dry1j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CapsuleShape2D_fh8qq")

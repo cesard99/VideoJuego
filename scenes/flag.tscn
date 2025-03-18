@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://v5o1oxkb5g1k"]
+
+[ext_resource type="Texture2D" uid="uid://b4hbva1anbc3y" path="res://assets/sprites/tiles/items/flagYellow2.png" id="1_32e5v"]
+[ext_resource type="Texture2D" uid="uid://dbelu8qrv17rt" path="res://assets/sprites/tiles/items/flagYellow.png" id="2_q38m2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkyk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_32e5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q38m2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flag" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jkyk4")
+autoplay = "default"
+frame_progress = 0.562212

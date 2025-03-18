@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://t5td2mvlwxf8"]
+
+[ext_resource type="Texture2D" uid="uid://bgjeligdoyrnu" path="res://assets/sprites/tiles/basic/tochLit2.png" id="1_my26j"]
+[ext_resource type="Texture2D" uid="uid://bpg4w1oqwsybb" path="res://assets/sprites/tiles/basic/tochLit.png" id="2_o2tjn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3k50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_my26j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o2tjn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Environment" id="Environment_my26j"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="Torch" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(2.14, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_r3k50")
+autoplay = "default"
+frame_progress = 0.276824
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_my26j")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://8mabbo0iw4qg"]
+
+[ext_resource type="Texture2D" uid="uid://b7qsf5q4nfjee" path="res://assets/sprites/enemy sprites extra/spinnerHalf.png" id="1_o3bek"]
+[ext_resource type="Texture2D" uid="uid://fh0sofp7gwin" path="res://assets/sprites/enemy sprites extra/spinnerHalf_spin.png" id="2_c5hwu"]
+[ext_resource type="PackedScene" uid="uid://630jbmhj0ig4" path="res://scenes/killzone.tscn" id="3_pv6ae"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jcrk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o3bek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c5hwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3bek"]
+size = Vector2(49, 27)
+
+[node name="SpinerHalf" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0jcrk")
+autoplay = "default"
+frame_progress = 0.223049
+
+[node name="Killzone" parent="." instance=ExtResource("3_pv6ae")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_o3bek")

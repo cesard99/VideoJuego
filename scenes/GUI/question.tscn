@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dwhp1sal0hims"]
+[gd_scene load_steps=2 format=3 uid="uid://dwhp1sal0hims"]
 
-[node name="question" type="Control"]
+[ext_resource type="Script" uid="uid://b4tjiopgfamxr" path="res://scripts/question.gd" id="1_x0l7e"]
+
+[node name="Question" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -13,6 +16,7 @@ offset_right = 136.5
 offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x0l7e")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -35,12 +39,20 @@ size_flags_horizontal = 4
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 55
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Help" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Ayuda"
 
 [node name="label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -49,14 +61,36 @@ text = "PREGUNTA"
 [node name="option1" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"ButtonOption"
-text = "HOLA"
+text = "Opcion 1"
 
 [node name="option2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"ButtonOption"
-text = "HOLA"
+text = "Opcion 2"
 
 [node name="option3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"ButtonOption"
-text = "HOLA"
+text = "Opcion 3"
+
+[node name="option4" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonOption"
+text = "Opcion 3"
+
+[node name="option5" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonOption"
+text = "Opcion 3"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/option4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/option5" to="." method="_on_option_5_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

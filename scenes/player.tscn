@@ -18,11 +18,11 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_4r5pv")
+"texture": ExtResource("10_60mlk")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 20.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -71,8 +71,8 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v2ag"]
-radius = 27.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jej6c"]
+radius = 28.0
 height = 96.0
 
 [node name="Player" type="CharacterBody2D" groups=["Climber"]]
@@ -80,11 +80,13 @@ collision_layer = 2
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -51)
+position = Vector2(-38, -36)
+scale = Vector2(1, 0.989)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.0945298
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -49)
-shape = SubResource("CapsuleShape2D_3v2ag")
+position = Vector2(-40, -38)
+shape = SubResource("CapsuleShape2D_jej6c")

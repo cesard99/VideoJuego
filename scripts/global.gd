@@ -1,3 +1,4 @@
 extends Node
 
-var score : int = 0;
+var score  = 0;
+var level = 1;

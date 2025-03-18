@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddh8ynf7caen1"]
 
 [ext_resource type="Script" uid="uid://t087lkp1615j" path="res://scripts/option.gd" id="1_qyo4g"]
-[ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/nivel1/items/platformPack_tilesheet.png" id="2_a5iwx"]
+[ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/tiles/items/platformPack_tilesheet.png" id="2_a5iwx"]
 
 [node name="Options" type="Control"]
 layout_mode = 3

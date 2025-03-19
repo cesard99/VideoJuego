@@ -6,6 +6,7 @@ var direction = 1
 @onready var ray_cast_lefts: RayCast2D = $RayCastLefts
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $Killzone/CollisionShape2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var health = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +27,7 @@ func _process(delta: float) -> void:
 func _on_get_demage_box_body_entered(body: Node2D) -> void:
 	health -= 1
 	body.velocity.y = -300;
+	audio.play()
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "death":

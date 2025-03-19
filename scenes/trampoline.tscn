@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn22lrwe86s0l"]
+[gd_scene load_steps=8 format=3 uid="uid://cn22lrwe86s0l"]
 
 [ext_resource type="Script" uid="uid://bkwssiyukjx75" path="res://scripts/trampoline.gd" id="1_1ne3y"]
 [ext_resource type="Texture2D" uid="uid://djhcuhjucr66y" path="res://assets/sprites/tiles/items/springboardUp.png" id="1_nytqh"]
 [ext_resource type="Texture2D" uid="uid://yg02ff3h1nkg" path="res://assets/sprites/tiles/items/springboardDown.png" id="2_1ne3y"]
+[ext_resource type="AudioStream" uid="uid://mxi1i6wv5ajb" path="res://assets/sounds/springboard-c-92440.mp3" id="4_5gay0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5gay0"]
 animations = [{
@@ -53,5 +54,8 @@ shape = SubResource("RectangleShape2D_64cc3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="object_collision"]
 position = Vector2(0, 17)
 shape = SubResource("RectangleShape2D_oqe70")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5gay0")
 
 [connection signal="body_entered" from="activation_area" to="." method="_on_activation_area_body_entered"]

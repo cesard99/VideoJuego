@@ -100,10 +100,12 @@ func check_answer(selected_option, button: Button):
 	
 	# Comprobar si la opción seleccionada es correcta
 	if selected_option == question_data["correct_answer"]:
+		correct.stop()
 		correct.play()
 		level_manager.add_key()  # Añadir una clave al nivel
 		button.self_modulate = Color.GREEN  # Cambiar color del botón a verde si la respuesta es correcta
 	else:
+		incorrect.stop()
 		incorrect.play()
 		button.self_modulate = Color.RED  # Cambiar color del botón a rojo si la respuesta es incorrecta
 	# Reiniciar el temporizador para la siguiente pregunta

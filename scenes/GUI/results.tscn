@@ -40,6 +40,7 @@ offset_left = -117.0
 offset_right = 117.0
 offset_bottom = 70.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.65413, 0.452287, 0.263226, 1)
 theme_override_font_sizes/font_size = 50
 text = "Graduados"
 

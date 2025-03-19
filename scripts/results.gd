@@ -15,7 +15,7 @@ func _ready():
 	# Construye la tabla en el Label
 	if ultimos_10.size() > 0:
 		# Encabezados
-		var texto_tabla = format_fila(["Nombre", "Fecha", "Promedio"])
+		var texto_tabla = format_fila(["", "", ""])
 		texto_tabla += "\n"  # Separador entre encabezados y datos
 
 		# Datos

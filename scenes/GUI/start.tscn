@@ -12,24 +12,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.72549)
+color = Color(0, 0, 0, 0.929412)
 
 [node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -43.0
-offset_right = 72.0
-offset_bottom = 44.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 39.0
+offset_right = -3.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Hola
+text = "📢 ¡Bienvenidos a la gran aventura de Ingeniería Informática en la CUJAE! 🎓💻
+
+Tu misión es graduarte superando 4 niveles (años) llenos de desafíos. Enfrentarás obstáculos y pondrás a prueba tus conocimientos sobre asignaturas clave de cada año.
+
+🔹 Supera los retos: Responde correctamente para avanzar.
+🔹 Recolecta monedas: ¡Podrán ayudarte con pistas valiosas!
+🔹 Desbloquea el siguiente nivel: Acertando al menos 3 preguntas.
+
+📚🏆 ¡Demuestra que tienes lo necesario para convertirte en ingeniero!
+🚀 ¡Comienza el Primer Año!
 "
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="."]
 anchors_preset = 7

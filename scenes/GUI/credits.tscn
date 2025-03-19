@@ -45,19 +45,20 @@ vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="GridContainer"]
 layout_mode = 2
-text = "Roxana Gómez Padrón"
+text = "Roxana Padrón Gómez"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="GridContainer"]
 layout_mode = 2
-text = "Javier Alfredo Cárdenas"
+text = "Javier Alfredo Cárdenas Moares"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Cesar Denis Pasto Escalona"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]

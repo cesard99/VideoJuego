@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq7o0ebhg5i1j"]
+
+[ext_resource type="Script" uid="uid://jgp5wtuwu55x" path="res://scripts/credits.gd" id="1_t2eis"]
+[ext_resource type="Texture2D" uid="uid://bqi2kwgshirga" path="res://assets/sprites/icons/inf-modified.png" id="2_1jnya"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t2eis")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -174.0
+offset_top = 132.0
+offset_right = 174.0
+offset_bottom = 432.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.87451, 0.0156863, 1)
+theme_override_font_sizes/font_size = 50
+text = "Autores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Cristian Páez Olcha"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Katherine Ramírez Hidalgo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Roxana Gómez Padrón"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Javier Alfredo Cárdenas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Cesar Denis Pasto Escalona"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.984314, 0.839216, 0, 0.0980392)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -204.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -165.0
+offset_right = 81.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_1jnya")
+expand_mode = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -58.0
+offset_right = -21.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Atrás
+"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

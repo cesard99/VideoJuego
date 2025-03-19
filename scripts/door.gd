@@ -14,6 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 func load_level_scene(current_level: int) -> void:
 	var scene_path = ""
+	Global.mean += level_manager.keys
 	
 	match current_level:
 		1:
@@ -23,7 +24,8 @@ func load_level_scene(current_level: int) -> void:
 		3:
 			scene_path = "res://scenes/levels/level4.tscn"
 		4:
-			scene_path = "res://scenes/levels/final_scene.tscn"
+			scene_path = "res://scenes/GUI/end.tscn"
 	
+	Global.level += 1
 	# Cambiar a la escena correspondiente
 	get_tree().change_scene_to_file(scene_path)

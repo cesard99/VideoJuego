@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://on3o2bw323b7"]
+
+[ext_resource type="Script" uid="uid://b2cri8fxpupi3" path="res://scripts/end.gd" id="1_nifsm"]
+[ext_resource type="Texture2D" uid="uid://djeobwlwn26ku" path="res://assets/sprites/tiles/back/grad.jpg" id="2_nn8r4"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_nifsm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nn8r4")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.52549)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -545.0
+offset_top = -54.0
+offset_right = -178.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.0
+offset_right = 111.0
+offset_bottom = 21.0
+grow_vertical = 2
+text = "  Nombre:"
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -15.0
+offset_right = -7.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Jugador1"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Usted se ha graduado......"
+
+[node name="Mean" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 593.0
+offset_right = 551.0
+offset_bottom = 680.0
+text = "Promedio:
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Aceptar
+"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/tiles/items/platformPack_tilesheet.png" id="2_a5iwx"]
 
 [node name="Options" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,5 +48,5 @@ theme_override_font_sizes/font_size = 50
 text = "Atrás"
 
 [connection signal="pressed" from="VBoxContainer/Volume" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_exit_pressed"]

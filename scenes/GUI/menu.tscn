@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbmwbyup26lk2" path="res://assets/sprites/tiles/items/platformPack_tilesheet.png" id="1_yqeox"]
 
 [node name="Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,10 +42,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Jugar"
 
-[node name="Option" type="Button" parent="VBoxContainer"]
+[node name="Results" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Configuración"
+text = "Resultados"
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -57,6 +58,6 @@ theme_override_font_sizes/font_size = 50
 text = "Salir"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/Results" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

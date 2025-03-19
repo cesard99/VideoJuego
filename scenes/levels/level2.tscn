@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://b8x4oapj3c1fi" path="res://scenes/block.tscn" id="4_b0vvs"]
 [ext_resource type="PackedScene" uid="uid://dwhp1sal0hims" path="res://scenes/GUI/question.tscn" id="4_dj4wq"]
 [ext_resource type="Texture2D" uid="uid://kiswiv5q3rp0" path="res://assets/sprites/tiles/back/bg_castle.png" id="5_5qtw0"]
+[ext_resource type="PackedScene" uid="uid://b0e4b06een1g8" path="res://scenes/GUI/game_over.tscn" id="5_45jfw"]
 [ext_resource type="PackedScene" uid="uid://d1u52fvhb1fa6" path="res://scenes/player.tscn" id="8_k0mew"]
 [ext_resource type="PackedScene" uid="uid://v5o1oxkb5g1k" path="res://scenes/flag.tscn" id="10_8i1lk"]
 [ext_resource type="PackedScene" uid="uid://d3foma4xb4b8e" path="res://scenes/platforms_purple.tscn" id="10_gycjm"]
 [ext_resource type="Texture2D" uid="uid://cgi2yudkto3d4" path="res://assets/sprites/tiles/basic/cave/marge2.png" id="11_4eecq"]
 [ext_resource type="PackedScene" uid="uid://cjjpwvfg7jdib" path="res://scenes/block_coin.tscn" id="11_sqrei"]
-[ext_resource type="Script" uid="uid://cwtmeko5crrsi" path="res://scripts/door.gd" id="13_45jfw"]
 [ext_resource type="PackedScene" uid="uid://630jbmhj0ig4" path="res://scenes/killzone.tscn" id="13_hgky1"]
 [ext_resource type="PackedScene" uid="uid://0sfcd1kvrbsr" path="res://scenes/enemies/snake_lava.tscn" id="14_b4tpv"]
 [ext_resource type="PackedScene" uid="uid://356j6y77eeyi" path="res://scenes/enemies/spinner.tscn" id="15_hkuam"]
@@ -650,6 +650,15 @@ script = ExtResource("1_niitk")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.436)
+
 [node name="PanelContainer" type="PanelContainer" parent="GUI"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -692,16 +701,7 @@ offset_top = -150.0
 offset_right = 119.0
 offset_bottom = 74.0
 
-[node name="Final" type="Label" parent="GUI"]
-offset_left = 15094.2
-offset_top = 143.497
-offset_right = 15768.2
-offset_bottom = 288.497
-text = "Si quieres ver la puerta al siguiente año debes contestar  al menos 3 preguntas correctamente!!!
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+[node name="GameOver" parent="." instance=ExtResource("5_45jfw")]
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -739,7 +739,6 @@ shape = SubResource("WorldBoundaryShape2D_b4tpv")
 
 [node name="Door" parent="." instance=ExtResource("19_b3p8y")]
 position = Vector2(15598, 24)
-script = ExtResource("13_45jfw")
 
 [node name="Blocks" type="Node2D" parent="."]
 
@@ -1219,3 +1218,17 @@ position = Vector2(12133, -139)
 
 [node name="Slime3" parent="Slimes" instance=ExtResource("25_xidjn")]
 position = Vector2(11754, -139)
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="Final" type="Label" parent="Labels"]
+offset_left = 15094.2
+offset_top = 143.497
+offset_right = 15768.2
+offset_bottom = 288.497
+theme_override_colors/font_color = Color(0.647707, 0.370533, 0.646612, 1)
+text = "Si quieres ver la puerta al siguiente año debes contestar  al menos 3 preguntas correctamente!!!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

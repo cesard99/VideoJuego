@@ -7,6 +7,11 @@ extends Control
 @onready var option_4: Button = $PanelContainer/MarginContainer/VBoxContainer/option4
 @onready var option_5: Button = $PanelContainer/MarginContainer/VBoxContainer/option5
 @onready var help: Button = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/Help
+@onready var color_rect: ColorRect = $"../ColorRect"
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/AudioStreamPlayer2D
+@onready var game_over: CanvasLayer = $"../../GameOver"
+@onready var correct: AudioStreamPlayer2D = $Correct
+@onready var incorrect: AudioStreamPlayer2D = $Incorrect
 
 @onready var timer: Timer = $Timer
 @onready var level_manager: Node = %LevelManager
@@ -19,59 +24,45 @@ func _process(delta: float) -> void:
 var questions = [
 	# Nivel 1
 	[
-		{"question": "¿Cuál es la capital de Francia?", "options": ["París", "Londres", "Berlín", "Roma", "Madrid"], "correct_answer": 0},
-		{"question": "¿Cuántos planetas hay en el sistema solar?", "options": ["7", "8", "9", "10", "11"], "correct_answer": 1},
-		{"question": "¿Quién escribió 'Cien años de soledad'?", "options": ["Gabriel García Márquez", "Pablo Neruda", "Julio Cortázar", "Mario Vargas Llosa", "Carlos Fuentes"], "correct_answer": 0},
-		{"question": "¿Cuál es el río más largo del mundo?", "options": ["Amazonas", "Nilo", "Yangtsé", "Mississippi", "Ganges"], "correct_answer": 0},
-		{"question": "¿En qué año llegó el hombre a la luna?", "options": ["1969", "1972", "1965", "1963", "1970"], "correct_answer": 0}
+		{"question": "¿Cuál de los siguientes es un lenguaje de programación?", "options": ["HTML", "Python", "CSS", "JSON", "EcuRed"], "correct_answer": 1},
+		{"question": "¿Qué es un objeto en POO?", "options": ["Un tipo de dato primitivo", "Un método de programación", "Un lenguaje de programación", "Una instancia de una clase", "No sé, averigua"], "correct_answer": 3},
+		{"question": "¿Qué significa encapsulamiento en POO?", "options": ["Crear múltiples instancias de una clase", "Heredar propiedades de una clase", "Guardar los atributos en el armario para que no los utilicen", "Ejecutar un programa en paralelo", "Ocultar los detalles internos de un objeto"], "correct_answer": 4},
+		{"question": "¿Qué es un grafo en matemática discreta?", "options": ["Una función matemática", "Un conjunto de vértices y aristas", "Una secuencia ordenada de números", "Una operación binaria", "Una obra de arte discreta"], "correct_answer": 1},
+		{"question": "¿Qué es una proposición en lógica matemática?", "options": ["Una afirmación que puede ser verdadera o falsa", "Un número entero", "Una función matemática", "Una pregunta sin respuesta", "Cásate conmigo"], "correct_answer": 0}
 	],
 	# Nivel 2
 	[
-		{"question": "¿Qué es la fotosíntesis?", "options": ["Proceso biológico", "Reacción química", "Tecnología moderna", "Reacción física", "Transformación geológica"], "correct_answer": 0},
-		{"question": "¿Quién pintó la Mona Lisa?", "options": ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet", "Michelangelo"], "correct_answer": 0},
-		{"question": "¿Qué gas es más abundante en la atmósfera terrestre?", "options": ["Nitrógeno", "Oxígeno", "Dióxido de carbono", "Argón", "Hidrógeno"], "correct_answer": 0},
-		{"question": "¿Cuál es el continente más grande?", "options": ["Asia", "África", "América", "Europa", "Oceanía"], "correct_answer": 0},
-		{"question": "¿Quién desarrolló la teoría de la relatividad?", "options": ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla", "Max Planck"], "correct_answer": 0}
+		{"question": "¿Qué es una pila (stack)?", "options": ["Una estructura de datos FIFO (First In, First Out)", "Llave o grifo por donde sale el agua", "Una estructura de datos no lineal", "Una estructura de datos LIFO (Last In, First Out)", "Una estructura de datos basada en árboles"], "correct_answer": 3},
+		{"question": "¿Qué es una cola (queue)?", "options": ["Evento que reúne a muchas personas para comprar un producto", "Una estructura de datos FIFO (First In, First Out)", "Una estructura de datos LIFO (Last In, First Out)", "Una estructura de datos no lineal", "Una estructura de datos basada en grafos"], "correct_answer": 1},
+		{"question": "¿Qué es la memoria RAM?", "options": ["Un tipo de almacenamiento permanente", "Un tipo de procesador", "Un tipo de almacenamiento temporal", "Un tipo de dispositivo de entrada", "Unidad cerebral utilizada para exponer trabajos de humanidades"], "correct_answer": 2},
+		{"question": "¿Qué es la ALU?", "options": ["Unidad Aritmético-Lógica", "Unidad de Memoria", "Amamos La Universidad", "Unidad de Entrada/Salida", "Unidad de Control"], "correct_answer": 0},
+		{"question": "¿Qué es una clave primaria?", "options": ["Instrumento musical", "Un campo que no puede ser eliminado", "Un campo que no puede ser modificado", "Un campo que permite valores duplicados", "Un campo que identifica de manera única un registro en una tabla"], "correct_answer": 4}
 	],
 	# Nivel 3
 	[
-		{"question": "¿Qué es la gravedad?", "options": ["Fuerza de atracción", "Reacción física", "Movimiento rotacional", "Fuerza de repulsión", "Cálculo geométrico"], "correct_answer": 0},
-		{"question": "¿Quién fue el primer presidente de EE. UU.?", "options": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "Franklin D. Roosevelt", "John Adams"], "correct_answer": 0},
-		{"question": "¿En qué país nació el cine?", "options": ["Francia", "Alemania", "EE. UU.", "Italia", "España"], "correct_answer": 0},
-		{"question": "¿Quién pintó la 'Última Cena'?", "options": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo", "Claude Monet"], "correct_answer": 0},
-		{"question": "¿Qué océano es el más grande?", "options": ["Pacífico", "Atlántico", "Índico", "Ártico", "Antártico"], "correct_answer": 0}
+		{"question": "¿Qué es un requisito funcional?", "options": ["Una restricción sobre el sistema", "Una característica no relacionada con el sistema", "Un requisito de hardware", "Una característica que describe el comportamiento del sistema", "Algo que si funciona, no se toca"], "correct_answer": 3},
+		{"question": "¿Qué es un stakeholder?  ", "options": ["Una persona o grupo interesado en el sistema", "Un tipo de requisito", "Un tipo de software", "Un estudiante que monta skate (patineta)", "Un tipo de hardware"], "correct_answer": 0},
+		{"question": "¿Qué es el aprendizaje supervisado?", "options": ["Un tipo de aprendizaje donde el modelo se entrena con datos no etiquetados ", "Un tipo de aprendizaje basado en reglas", "Un tipo de aprendizaje basado en grafos", "Aprendizaje bajo vigilancia", "Un tipo de aprendizaje donde el modelo se entrena con datos etiquetados"], "correct_answer": 4},
+		{"question": "¿Qué es un requisito no funcional?", "options": ["Una característica que describe el comportamiento del sistema", "Una restricción sobre el sistema", "Una característica no relacionada con el sistema", "Requerimientos para que el sistema no funcione", "Un requisito de hardware"], "correct_answer": 1},
+		{"question": "¿Qué es HTML?", "options": ["Un explosivo, me parece", "Un lenguaje de programación", "Un lenguaje de marcado para crear páginas web", "Un lenguaje de estilos", "Un lenguaje de consulta"], "correct_answer": 2}
 	],
 	# Nivel 4
 	[
-		{"question": "¿Qué es un agujero negro?", "options": ["Un fenómeno espacial", "Un error físico", "Una distorsión en la luz", "Un tipo de estrella", "Una zona sin materia"], "correct_answer": 0},
-		{"question": "¿Cuál es la capital de Japón?", "options": ["Tokio", "Osaka", "Kioto", "Seúl", "Pekín"], "correct_answer": 0},
-		{"question": "¿Cuántos países hay en África?", "options": ["54", "50", "60", "47", "52"], "correct_answer": 0},
-		{"question": "¿Qué año se fundó la ONU?", "options": ["1945", "1912", "1929", "1985", "1940"], "correct_answer": 0},
-		{"question": "¿Qué elemento químico tiene el símbolo 'O'?", "options": ["Oxígeno", "Osmio", "Oro", "Oganesón", "Oxígeno-18"], "correct_answer": 0}
+		{"question": "¿Qué es el método simplex?", "options": ["Un algoritmo para resolver problemas de programación lineal", "Un algoritmo para resolver problemas de redes", "Un algoritmo simple, es obvio", "Un algoritmo para resolver problemas de probabilidad", "Un algoritmo para resolver problemas de lógica"], "correct_answer": 0},
+		{"question": "¿Qué es un modelo de transporte?", "options": ["Monta que te quedas", "Un modelo para resolver problemas de probabilidad", "Un modelo para resolver problemas de lógica", "Un modelo para optimizar la distribución de recursos", "Un modelo para resolver problemas de redes"], "correct_answer": 3},
+		{"question": "¿Qué es un diagrama de Gantt?", "options": ["Una herramienta para planificar y programar proyectos", "Una herramienta para resolver problemas de optimización", "Una herramienta para resolver problemas de probabilidad", "Diagrama giGantte", "Una herramienta para resolver problemas de lógica"], "correct_answer": 0},
+		{"question": "¿Qué es un algoritmo de clustering?", "options": ["Un algoritmo que clasifica datos", "Un algoritmo que predice datos", "Un algoritmo que agrupa datos similares", "Yo no vine a esa clase", "Un algoritmo que elimina datos"], "correct_answer": 2},
+		{"question": "¿Qué es un ataque de phishing?", "options": ["Un ataque que modifica datos", "Ataque repartero basado en el engaño", "Un ataque que elimina datos", "Un ataque que bloquea el acceso a un sistema", "Un ataque que intenta obtener información confidencial mediante engaño"], "correct_answer": 4}
 	]
 ]
 
 var current_question_index = -1
-var current_level_questions = []
+var current_level_questions = questions[Global.level-1]
 var max_questions_per_level = 5
 var used_hints = [] 
 
-func load_level(current_level):
-	if current_level < questions.size():
-		current_level_questions = questions[current_level]
-		current_question_index = -1
-		load_next_question()
-	else:
-		label.text = "¡Fin del juego!"
-		option_1.hide()
-		option_2.hide()
-		option_3.hide()
-		option_4.hide()
-		option_5.hide()
-
 func load_next_question():
 	if current_question_index < max_questions_per_level - 1:
-		current_question_index += 1
 		var question_data = current_level_questions[current_question_index]
 		label.text = question_data.get("question", "Pregunta no encontrada")  # Texto por defecto si falta la clave "question"
 		option_1.text = question_data.get("options", [])[0]  # Array vacío por defecto si falta la clave "options"
@@ -79,10 +70,9 @@ func load_next_question():
 		option_3.text = question_data.get("options", [])[2]
 		option_4.text = question_data.get("options", [])[3]
 		option_5.text = question_data.get("options", [])[4]
-		# Accede a la respuesta correcta, y asegúrate de manejar claves faltantes de manera segura
+
 		var correct_answer_index = question_data.get("correct_answer", -1)  # -1 si falta la clave
 		if correct_answer_index != -1:
-			# Ahora puedes usar el índice de la respuesta correcta para verificar la opción seleccionada más tarde
 			print("La respuesta correcta es la opción " + str(correct_answer_index))
 		else:
 			print("No se ha definido una respuesta correcta para esta pregunta")
@@ -96,8 +86,9 @@ func load_next_question():
 		option_5.hide()
 
 func block_touched():
+	color_rect.visible = true
 	current_question_index += 1
-	load_level(current_question_index)
+	load_next_question()
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -109,15 +100,12 @@ func check_answer(selected_option, button: Button):
 	
 	# Comprobar si la opción seleccionada es correcta
 	if selected_option == question_data["correct_answer"]:
+		correct.play()
 		level_manager.add_key()  # Añadir una clave al nivel
 		button.self_modulate = Color.GREEN  # Cambiar color del botón a verde si la respuesta es correcta
 	else:
+		incorrect.play()
 		button.self_modulate = Color.RED  # Cambiar color del botón a rojo si la respuesta es incorrecta
-		
-		# Verificar si se han repetido 3 veces en la misma área o bloque
-		if (level_manager.visisted_block - level_manager.keys) == 3:
-			print("Has repetido el año")
-	
 	# Reiniciar el temporizador para la siguiente pregunta
 	timer.start()
 
@@ -131,12 +119,13 @@ func _on_option_3_pressed() -> void:
 	check_answer(2, option_3)
 
 func _on_option_4_pressed() -> void:
-	check_answer(3, option_3)
+	check_answer(3, option_4)
 
 func _on_option_5_pressed() -> void:
-	check_answer(4, option_3)
+	check_answer(4, option_5)
 
 func _on_timer_timeout() -> void:
+	color_rect.visible = false
 	visible = false
 	get_tree().paused = false 
 	option_1.disabled = false
@@ -150,8 +139,13 @@ func _on_timer_timeout() -> void:
 	option_4.self_modulate = Color(1.0, 1.0, 1.0, 1.0) 
 	option_5.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
+	if (level_manager.visisted_block - level_manager.keys) == 3:
+		game_over.visible = true
+		get_tree().paused = true
+	
 func _on_help_pressed() -> void:
 	if level_manager.score > 20 and used_hints.size() < 3:  # Solo permite hasta 3 pistas
+		audio_stream_player_2d.play()
 		level_manager.use_point()  # Restar 20 monedas por la pista
 
 		# Obtener opciones incorrectas que aún no han sido marcadas

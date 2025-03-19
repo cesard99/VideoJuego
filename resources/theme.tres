@@ -1,9 +1,19 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bvb00aasxe018"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bvb00aasxe018"]
 
 [ext_resource type="Texture2D" uid="uid://g8rmpiwixef2" path="res://assets/sprites/GUI/buttonLong_brown.png" id="1_886mr"]
 [ext_resource type="Texture2D" uid="uid://dqnul1xshyqdk" path="res://assets/sprites/GUI/panel_brown.png" id="2_7ct1h"]
 [ext_resource type="FontFile" uid="uid://shtsq2i5rq4d" path="res://assets/fonts/SpicyRice-Regular.ttf" id="2_886mr"]
+[ext_resource type="Texture2D" uid="uid://lyhqkg35c87b" path="res://assets/sprites/GUI/buttonLong_brown_pressed.png" id="2_owntx"]
 [ext_resource type="Texture2D" uid="uid://dxci6btjqmnaf" path="res://assets/sprites/GUI/panel_blue.png" id="4_b751m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aaf3v"]
+texture = ExtResource("1_886mr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yp2uj"]
+texture = ExtResource("1_886mr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dhnw2"]
+texture = ExtResource("2_owntx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b751m"]
 texture = ExtResource("1_886mr")
@@ -11,6 +21,8 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhnw2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owntx"]
 bg_color = Color(0.413392, 0.387421, 0.451988, 1)
@@ -25,7 +37,11 @@ texture = ExtResource("2_7ct1h")
 texture = ExtResource("4_b751m")
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_aaf3v")
+Button/styles/focus = SubResource("StyleBoxTexture_yp2uj")
+Button/styles/hover = SubResource("StyleBoxTexture_dhnw2")
 Button/styles/normal = SubResource("StyleBoxTexture_b751m")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_dhnw2")
 ButtonOption/base_type = &"Button"
 ButtonOption/styles/hover = SubResource("StyleBoxFlat_owntx")
 ButtonOption/styles/normal = SubResource("StyleBoxFlat_b751m")

@@ -16,8 +16,6 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var level_manager: Node = %LevelManager
 
-var level = Global.level
-
 func _process(delta: float) -> void:
 	help.disabled = level_manager.score < 20
 
@@ -62,7 +60,8 @@ var max_questions_per_level = 5
 var used_hints = [] 
 
 func load_next_question():
-	if current_question_index < max_questions_per_level - 1:
+	if current_question_index <= max_questions_per_level - 1:
+		print(current_question_index)
 		var question_data = current_level_questions[current_question_index]
 		label.text = question_data.get("question", "Pregunta no encontrada")  # Texto por defecto si falta la clave "question"
 		option_1.text = question_data.get("options", [])[0]  # Array vacío por defecto si falta la clave "options"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dv1pe0bliwtxy"]
+[gd_scene load_steps=45 format=4 uid="uid://dv1pe0bliwtxy"]
 
 [ext_resource type="Script" uid="uid://db4m5laaea51l" path="res://scripts/level_manager.gd" id="1_db4wd"]
 [ext_resource type="Texture2D" uid="uid://dxiys5gvh3x77" path="res://assets/sprites/GUI/coinGUI.png" id="2_yc51k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e4b06een1g8" path="res://scenes/GUI/game_over.tscn" id="5_db4wd"]
 [ext_resource type="Texture2D" uid="uid://kiswiv5q3rp0" path="res://assets/sprites/tiles/back/bg_castle.png" id="5_flme0"]
 [ext_resource type="Texture2D" uid="uid://cbdekbm42r5dm" path="res://assets/sprites/tiles/basic/cave/marge.png" id="6_0qxt0"]
+[ext_resource type="PackedScene" uid="uid://dnph68070nmbt" path="res://scenes/GUI/paused.tscn" id="6_lsxft"]
 [ext_resource type="Texture2D" uid="uid://crvikik1nn2" path="res://assets/sprites/tiles/back/ice back 1.jpg" id="7_6vxnv"]
 [ext_resource type="Texture2D" uid="uid://cgi2yudkto3d4" path="res://assets/sprites/tiles/basic/cave/marge2.png" id="7_lsxft"]
 [ext_resource type="Texture2D" uid="uid://bq0tmhxktsikp" path="res://assets/sprites/tiles/ice expansion/marge.png" id="8_522sc"]
@@ -1122,6 +1123,8 @@ offset_bottom = 74.0
 
 [node name="GameOver" parent="." instance=ExtResource("5_db4wd")]
 
+[node name="Paused" parent="." instance=ExtResource("6_lsxft")]
+
 [node name="Tiles" type="Node2D" parent="."]
 
 [node name="Back" type="TileMapLayer" parent="Tiles"]
@@ -1157,7 +1160,7 @@ scale = Vector2(5, 5)
 shape = SubResource("WorldBoundaryShape2D_b4tpv")
 
 [node name="Door" parent="." instance=ExtResource("20_k4124")]
-position = Vector2(10632, -123)
+position = Vector2(10632, -122)
 
 [node name="Blocks" type="Node2D" parent="."]
 
@@ -1246,7 +1249,7 @@ position = Vector2(5943, -1350)
 position = Vector2(5943, -1770)
 
 [node name="BlockCoin24" parent="Blocks" instance=ExtResource("13_wt4k6")]
-position = Vector2(5938, -928)
+position = Vector2(5943, -929)
 
 [node name="BlockCoin25" parent="Blocks" instance=ExtResource("13_wt4k6")]
 position = Vector2(39, -782)

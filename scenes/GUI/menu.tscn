@@ -46,6 +46,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.655933, 0.58714, 0.0141905, 1)
+theme_override_colors/font_shadow_color = Color(0.00868266, 0.022487, 0.00933979, 1)
+theme_override_font_sizes/font_size = 50
+text = "Mario Engineer"
+horizontal_alignment = 1
+
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50

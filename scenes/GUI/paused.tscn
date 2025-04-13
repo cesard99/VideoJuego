@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnph68070nmbt"]
+[gd_scene load_steps=3 format=3 uid="uid://dnph68070nmbt"]
 
 [ext_resource type="Script" uid="uid://ck3m3du7rmws8" path="res://scripts/pause_menu.gd" id="1_r8o1p"]
+[ext_resource type="Texture2D" uid="uid://bjdjnspg5o757" path="res://assets/sprites/GUI/kenney_onscreen-controls/Sprites/transparent-light/transparentLight12.png" id="2_7takd"]
 
 [node name="Paused" type="CanvasLayer"]
 process_mode = 3
@@ -42,5 +43,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Inicio
 "
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+offset_right = 194.0
+offset_bottom = 115.0
+
+[node name="Pause" type="TouchScreenButton" parent="MarginContainer"]
+position = Vector2(28.0003, 25)
+scale = Vector2(1.27083, 1.20833)
+texture_normal = ExtResource("2_7takd")
+action = "pause"
 
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb0dmfwsvhtwm"]
+
+[ext_resource type="Script" uid="uid://cljybjuaogjne" path="res://scripts/controls.gd" id="1_wy8pu"]
+[ext_resource type="Texture2D" uid="uid://csx6b36b0e3jn" path="res://assets/sprites/GUI/kenney_onscreen-controls/Sprites/transparent-light/transparentLight22.png" id="2_n2oam"]
+[ext_resource type="Texture2D" uid="uid://c1r7kkjov2nlo" path="res://assets/sprites/GUI/kenney_onscreen-controls/Sprites/transparent-light/transparentLight23.png" id="3_nfe88"]
+[ext_resource type="Texture2D" uid="uid://bjdjnspg5o757" path="res://assets/sprites/GUI/kenney_onscreen-controls/Sprites/transparent-light/transparentLight12.png" id="4_tpf0i"]
+[ext_resource type="Texture2D" uid="uid://c4ejiw3j11xia" path="res://assets/sprites/GUI/kenney_onscreen-controls/Sprites/transparent-light/transparentLight43.png" id="5_bpfrc"]
+
+[node name="Controls" type="CanvasLayer"]
+script = ExtResource("1_wy8pu")
+
+[node name="Pause" type="TouchScreenButton" parent="."]
+position = Vector2(20, 20)
+scale = Vector2(1.1875, 1.1875)
+texture_normal = ExtResource("4_tpf0i")
+action = "pause"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -135.0
+offset_right = 343.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Left" type="TouchScreenButton" parent="MarginContainer2/MarginContainer"]
+position = Vector2(40, 19)
+scale = Vector2(1.0875, 1.075)
+texture_normal = ExtResource("2_n2oam")
+action = "left"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Right" type="TouchScreenButton" parent="MarginContainer2/MarginContainer2"]
+position = Vector2(154, 20)
+scale = Vector2(1.125, 1.0625)
+texture_normal = ExtResource("3_nfe88")
+action = "right"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -238.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="MarginContainer"]
+position = Vector2(57, 35)
+scale = Vector2(1.1125, 1.075)
+texture_normal = ExtResource("5_bpfrc")
+action = "jump"
+
+[connection signal="pressed" from="MarginContainer2/MarginContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="released" from="MarginContainer2/MarginContainer/Left" to="." method="_on_left_released"]
+[connection signal="pressed" from="MarginContainer2/MarginContainer2/Right" to="." method="_on_right_pressed"]
+[connection signal="released" from="MarginContainer2/MarginContainer2/Right" to="." method="_on_right_released"]
+[connection signal="pressed" from="MarginContainer/Jump" to="." method="_on_jump_pressed"]
+[connection signal="released" from="MarginContainer/Jump" to="." method="_on_jump_released"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=51 format=4 uid="uid://d2v4rx7moeec7"]
+[gd_scene load_steps=52 format=4 uid="uid://d2v4rx7moeec7"]
 
 [ext_resource type="Script" uid="uid://db4m5laaea51l" path="res://scripts/level_manager.gd" id="1_w1hcc"]
 [ext_resource type="Texture2D" uid="uid://dxiys5gvh3x77" path="res://assets/sprites/GUI/coinGUI.png" id="2_ph4mq"]
 [ext_resource type="Texture2D" uid="uid://ba8qt22y2si6" path="res://assets/sprites/GUI/keyYellowGUI.png" id="3_npa1m"]
 [ext_resource type="PackedScene" uid="uid://dwhp1sal0hims" path="res://scenes/GUI/question.tscn" id="4_ll01n"]
+[ext_resource type="PackedScene" uid="uid://cb0dmfwsvhtwm" path="res://scenes/GUI/controls.tscn" id="5_2c5pw"]
 [ext_resource type="Texture2D" uid="uid://kiswiv5q3rp0" path="res://assets/sprites/tiles/back/bg_castle.png" id="5_hxr3b"]
 [ext_resource type="PackedScene" uid="uid://b0e4b06een1g8" path="res://scenes/GUI/game_over.tscn" id="5_ph4mq"]
 [ext_resource type="PackedScene" uid="uid://dnph68070nmbt" path="res://scenes/GUI/paused.tscn" id="6_2c5pw"]
@@ -894,6 +895,8 @@ offset_left = -154.0
 offset_top = -150.0
 offset_right = 119.0
 offset_bottom = 74.0
+
+[node name="Controls" parent="GUI" instance=ExtResource("5_2c5pw")]
 
 [node name="GameOver" parent="." instance=ExtResource("5_ph4mq")]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://btsxuafgmr4n5"]
+[gd_scene load_steps=53 format=4 uid="uid://btsxuafgmr4n5"]
 
 [ext_resource type="Texture2D" uid="uid://cat8dcq8cyl4n" path="res://assets/sprites/tiles/back/bg.png" id="1_gee14"]
 [ext_resource type="Script" uid="uid://db4m5laaea51l" path="res://scripts/level_manager.gd" id="1_kvuet"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cgco8brbtxlvs" path="res://assets/sprites/tiles/back/cloud3.png" id="5_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dt33yrh7otesh" path="res://scenes/enemies/fish.tscn" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bekwe700u0lde" path="res://assets/sprites/tiles/items/marge.png" id="5_trtic"]
+[ext_resource type="PackedScene" uid="uid://cb0dmfwsvhtwm" path="res://scenes/GUI/controls.tscn" id="6_igeo0"]
 [ext_resource type="PackedScene" uid="uid://b0e4b06een1g8" path="res://scenes/GUI/game_over.tscn" id="6_jqv5m"]
 [ext_resource type="PackedScene" uid="uid://bgqj51c8hv7t6" path="res://scenes/coin.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://6d260rnaj6vk" path="res://scenes/GUI/start.tscn" id="7_3gp1u"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://v5o1oxkb5g1k" path="res://scenes/flag.tscn" id="9_6gwlt"]
 [ext_resource type="Texture2D" uid="uid://cmlsiufp6sv5d" path="res://assets/sprites/tiles/back/back cueva.jpg" id="9_07dy8"]
 [ext_resource type="PackedScene" uid="uid://b8x4oapj3c1fi" path="res://scenes/block.tscn" id="9_ir15t"]
+[ext_resource type="Texture2D" uid="uid://6ff2bjwbf0n1" path="res://assets/sprites/GUI/kenney_onscreen-controls/Sprites/transparent-light/transparentLight10.png" id="9_y71nm"]
 [ext_resource type="Texture2D" uid="uid://61l81bb4ju6m" path="res://assets/sprites/tiles/back/tierra.png" id="10_3gp1u"]
 [ext_resource type="PackedScene" uid="uid://cn22lrwe86s0l" path="res://scenes/trampoline.tscn" id="10_ca42v"]
 [ext_resource type="Texture2D" uid="uid://b7glnacnrdc4t" path="res://assets/sprites/tiles/back/tierra1.png" id="11_igeo0"]
@@ -594,9 +596,29 @@ offset_top = -150.0
 offset_right = 119.0
 offset_bottom = 74.0
 
+[node name="Controls" parent="GUI" instance=ExtResource("6_igeo0")]
+
 [node name="GameOver" parent="." instance=ExtResource("6_jqv5m")]
 
 [node name="Start" parent="." instance=ExtResource("7_3gp1u")]
+
+[node name="MarginContainer" type="MarginContainer" parent="Start"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -58.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Start/MarginContainer"]
+position = Vector2(15, 54)
+scale = Vector2(1.64583, -0.812501)
+texture_normal = ExtResource("9_y71nm")
+action = "start"
 
 [node name="Tiles" type="Node2D" parent="."]
 position = Vector2(1849, -792)
